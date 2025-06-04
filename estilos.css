@@ -1,0 +1,416 @@
+:root {
+  --fondo-principal: #fff3f0;
+  --color-primario: #f76c6c;
+  --color-secundario: #fcbf9e;
+  --texto-principal: #333;
+  --hover: #d64545;
+  --blanco: #ffffff;
+  --header-bg: rgba(255, 255, 255, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--fondo-principal);
+  color: var(--texto-principal);
+  }
+
+  
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--header-bg);
+  backdrop-filter: blur(10px);
+  color: var(--color-primario);
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Dancing Script', cursive;
+}
+
+.categoria:first-of-type {
+  padding-top: 80px;
+}
+
+header.scroll {
+  padding: 0.6rem;
+  font-size: 1.2rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Categorías */
+.categoria {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+}
+
+.categoria h2 {
+  margin-left: 1rem;
+  font-size: 1.8rem;
+  color: var(--color-primario);
+  font-family: 'Dancing Script', cursive;
+}
+
+
+/* Scroll horizontal de postres */
+.postres-scroll {
+  display: flex;
+  overflow-x: auto; /* Habilita scroll horizontal */
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  padding: 1rem;
+  -webkit-overflow-scrolling: touch; /* Suaviza el scroll en móviles */
+  scroll-behavior: smooth; /* Desplazamiento suave */
+}
+
+.postres-scroll::-webkit-scrollbar {
+  display: none; /* Oculta barra en navegadores WebKit */
+}
+
+
+.postre {
+  flex: 0 0 auto;
+  width: 250px;
+  background: var(--blanco);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+
+.postre:hover {
+  transform: translateY(-4px);
+}
+
+.postre img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.postre h3 {
+  margin: 0.5rem 0 0.2rem;
+  color: var(--color-primario);
+  font-family: 'Dancing Script', cursive;
+}
+
+.postre p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.postre button {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  background-color: var(--color-primario);
+  color: var(--blanco);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.postre button:hover {
+  background-color: var(--hover);
+}
+
+/* Carrito flotante */
+#carrito {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  background: var(--blanco);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  width: 280px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 999;
+  display: none;
+}
+
+#carrito.mostrar {
+  display: block;
+  
+}
+
+#carrito h3 {
+  margin-top: 0;
+  color: var(--color-primario);
+}
+
+#listaCarrito li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+}
+
+.eliminar {
+  margin-left: 10px;
+  background: var(--hover);
+  color: white;
+  border: none;
+  padding: 0.2rem 0.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+/* Botón carrito */
+.boton-carrito {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--color-primario);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 0.75rem 1.2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+#contadorCarrito {
+  background: white;
+  color: var(--color-primario);
+  border-radius: 50%;
+  padding: 0.2rem 0.5rem;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+/* WhatsApp */
+.whatsapp-container {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+#btnWhatsApp {
+  background-color: #25D366;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+}
+
+/* Modal */
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#modalContent {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+#modalContent img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .postre {
+    width: 200px;
+  }
+
+  .postre img {
+    height: 180px;
+  }
+
+  #carrito {
+    width: 90%;
+    right: 5%;
+    bottom: 6rem;
+  }
+
+  .boton-carrito {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+#carrito.animar {
+  animation: parpadeo 0.5s ease;
+}
+
+@keyframes parpadeo {
+  0% { transform: scale(1); box-shadow: 0 0 0 rgba(0,0,0,0); }
+  50% { transform: scale(1.05); box-shadow: 0 0 10px rgba(247, 108, 108, 0.6); }
+  100% { transform: scale(1); box-shadow: 0 0 0 rgba(0,0,0,0); }
+}
+
+
+/*Pantalla movil*/
+@media (max-width: 600px) {
+  header {
+    font-size: 1.2rem; /* Reduce tamaño del texto */
+    padding: 0.8rem;
+    word-break: break-word; /* Evita que se salga horizontalmente */
+    text-align: center;
+  }
+
+  header.scroll {
+    font-size: 1rem; /* También ajustar el tamaño al hacer scroll */
+    padding: 0.5rem;
+  }
+}
+
+/*Estilo visual para ir al costado*/
+
+.postres-scroll.arrastrando {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+.postres-scroll {
+  cursor: grab;
+}
+
+
+
+/*Flechas deslizables*/
+
+.contenedor-deslizante {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem;
+  z-index: 10;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.flecha:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.flecha.izquierda {
+  left: 5px;
+}
+
+.flecha.derecha {
+  right: 5px;
+}
+
+.postres-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  margin: 0 0.5rem; /* Deja espacio para las flechas */
+}
+
+
+@media (max-width: 768px) {
+  .flecha {
+    display: none;
+  }
+}
+
+
+
+/*boton de selec*/
+
+.postre select {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  appearance: none; /* Quita el estilo por defecto */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23666' d='M70 105L35 50h70z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 10px;
+  cursor: pointer;
+}
+
+.postre select:hover {
+  border-color: #ff8c94;
+  box-shadow: 0 0 6px rgba(255, 140, 148, 0.3);
+}
+
+.postre select:focus {
+  outline: none;
+  border-color: #ff5678;
+  box-shadow: 0 0 0 3px rgba(255, 86, 120, 0.2);
+}
+
+
+
+
+/*vibracion del carrito*/
+
+@keyframes vibrarCarrito {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+
+.carrito-vibrar {
+  animation: vibrarCarrito 0.4s ease;
+}
+
+
+
+
+
+
